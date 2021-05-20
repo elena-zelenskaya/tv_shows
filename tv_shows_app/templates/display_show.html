@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Display Show</title>
+	<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		/>
+		{% load static %}
+		<link rel="stylesheet" href="{% static '/css/styles.css' %}" />
+</head>
+<body>
+	<div class="container info">
+		<div class="row justify-content-end"><a class="breadcrumbs" href="/">Go Back</a></div>
+		<h1 class="mb-5">TV Show {{show_to_display.id}}</h1>
+		<p><span class="bold">Title:</span> {{show_to_display.title}}</p>
+		<p><span class="bold">Network:</span> {{show_to_display.network}}</p>
+		<p><span class="bold">Release Date:</span> {{show_to_display.release_date}}</p>
+		<p><span class="bold">Description:</span> {{show_to_display.description}}</p>
+		<p class="mt-5"><span class="bold">Last updated:</span> {{show_to_display.updated_at}}</p>
+		<p><a class="breadcrumbs" href="edit/">Edit</a> | <a class="breadcrumbs" href="destroy/">Delete</a></p>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Edit show</title><link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+/>
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/styles.css' %}" />
+</head>
+<body>
+<div class="container">
+<div class="row justify-content-end"><a class="breadcrumbs" href="/">Go Back</a></div>
+<h1 class="text-center mb-3">Edit Show {{show_to_edit.id}}</h1>
+{% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+<form action="../../{{show_to_edit.id}}/update/" method="POST">
+	{% csrf_token %}
+	<div class="form-group">
+		<label for="title"
+			>Title</label
+		>
+		
+			<input
+				type="text"
+				class="form-control"
+				id="title"
+				name="title"
+				value="{{show_to_edit.title}}"
+			/>
+	</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="network">Network</label>
+				<input type="text" class="form-control" id="network" name="network" value="{{show_to_edit.network}}">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="release_date">Release date</label>
+				<input type="date" class="form-control" id="release_date" name="release_date" value="{{formatted_date_string}}"
+				>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="description">Description</label>
+			<textarea class="form-control" id="description" rows="5" name="description">{{show_to_edit.description}}</textarea>
+		</div>
+	<div class="form-group mt-4 row justify-content-center">
+		
+			<button
+				type="submit" class="btn btn-success"
+			/>Update</button>
+		
+		
+	</div>
+	
+</form>
+<p class="text-center"><a class="breadcrumbs" href="../">Go to Show</a></p></div>
+</body>
+</html>

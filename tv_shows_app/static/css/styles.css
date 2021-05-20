@@ -1,0 +1,22 @@
+.container {
+	margin: 20px auto;
+}
+
+.breadcrumbs {
+	font-size:20px;
+	font-weight:700;
+}
+
+form {
+	width: 80%;
+	margin:0 auto;
+}
+
+.info p {
+	font-size:24px;
+}
+
+.bold {
+	font-size: 26px;
+	font-weight:700;
+}
